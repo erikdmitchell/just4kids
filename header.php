@@ -10,40 +10,42 @@
 <!--<![endif]-->
 
   <head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<link rel="profile" href="http://gmpg.org/xfn/11" />
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+        <meta charset="<?php bloginfo( 'charset' ); ?>">
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
     <?php wp_head(); ?>
   </head>
 
   <body <?php body_class(); ?>>
 
-		<div class="container-fluid primary-nav">
-			<div class="container">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".koksijde-mobile-menu">
-							<span class="sr-only"><?php _e('Toggle navigation', 'koksijde'); ?></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<?php get_template_part('navbar', 'brand'); ?>
-					</div>
-					<?php koksijde_secondary_navigation_setup(); ?>
-					<div class="collapse navbar-collapse primary-menu">
-						<?php
-						wp_nav_menu(array(
-							'theme_location' => 'primary',
-							'container' => false,
-							'menu_class' => 'nav navbar-nav pull-right',
-							'fallback_cb' => 'koksijde_wp_bootstrap_navwalker::fallback',
-							'walker' => new koksijde_wp_bootstrap_navwalker()
-						));
-						?>
-					</div> <!-- .primary-menu -->
-					<?php koksijde_mobile_navigation_setup(); ?>
-				</nav>
-			</div><!-- .container -->
-		</div><!-- .navigation -->
+        <div class="container-fluid primary-nav">
+            <div class="container">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".koksijde-mobile-menu">
+                            <span class="sr-only"><?php _e( 'Toggle navigation', 'koksijde' ); ?></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <?php get_template_part( 'navbar', 'brand' ); ?>
+                    </div>
+                    <?php koksijde_secondary_navigation_setup(); ?>
+                    <div class="collapse navbar-collapse primary-menu">
+                        <?php
+                        wp_nav_menu(
+                            array(
+                                'theme_location' => 'primary',
+                                'container' => false,
+                                'menu_class' => 'nav navbar-nav pull-right',
+                                'fallback_cb' => 'koksijde_wp_bootstrap_navwalker::fallback',
+                                'walker' => new koksijde_wp_bootstrap_navwalker(),
+                            )
+                        );
+                        ?>
+                    </div> <!-- .primary-menu -->
+                    <?php koksijde_mobile_navigation_setup(); ?>
+                </nav>
+            </div><!-- .container -->
+        </div><!-- .navigation -->
