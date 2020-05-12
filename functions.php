@@ -192,7 +192,7 @@ function koksijde_theme_scripts() {
     wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
 
     // enqueue font awesome and our main stylesheet
-    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/font-awesome.css', array(), '4.6.3' );
+    wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/fa.min.css', array(), '5.13.0' );
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.css', array(), '3.3.7' );
     wp_enqueue_style( 'koksijde-theme-style', get_stylesheet_uri() );
 }
