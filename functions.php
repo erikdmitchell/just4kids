@@ -267,49 +267,6 @@ function j4k_display_meta_description() {
 }
 
 /**
- * j4k_mobile_navigation_setup function.
- *
- * checks if we have an active mobile menu
- * if active mobile, sets it, if not, default to primary
- *
- * @access public
- * @return void
- */
-function j4k_mobile_navigation_setup() {
-    $html = null;
-
-    if ( has_nav_menu( 'mobile' ) ) :
-        $location = 'mobile';
-    else :
-        $location = 'primary';
-    endif;
-
-    $location = apply_filters( 'j4k_mobile_navigation_setup_location', $location );
-
-    if ( $location == 'primary' && ! has_nav_menu( $location ) ) {
-        return false;
-    }
-
-    $html .= '<div id="j4k-mobile-nav" class="collapse j4k-mobile-menu hidden-sm hidden-md hidden-lg">';
-
-        $html .= wp_nav_menu(
-            array(
-                'theme_location' => $location,
-                'container' => 'div',
-                'container_class' => 'panel-group navbar-nav',
-                'container_id' => 'accordion',
-                'echo' => false,
-                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                'walker' => new j4kMobileNavWalker(),
-            )
-        );
-
-    $html .= '</div><!-- .j4k-theme-mobile-menu -->';
-
-    echo apply_filters( 'j4k_mobile_navigation', $html );
-}
-
-/**
  * j4k_back_to_top function.
  *
  * @access public
