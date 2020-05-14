@@ -1,26 +1,4 @@
 /**
- * supporter functions for our theme
- */
-
-jQuery(window).load(function() {
-
-	jQuery('.j4k-wp-slider').j4kSlider();
-
-});
-/**
- * when a panel item (mobile nav) with children is clicked, this changes the +/- icon
- */
-jQuery(document).on('click','.j4k-mobile-menu .panel-heading.menu-item-has-children a, .j4k-mobile-menu .panel-collapse .panel-heading a', function(e) {
-	var $this=jQuery(this);
-
-	if ($this.hasClass('collapsed')) {
-		$this.find('i').removeClass('glyphicon-minus').addClass('glyphicon-plus');
-	} else {
-		$this.find('i').removeClass('glyphicon-plus').addClass('glyphicon-minus');
-	}
-});
-
-/**
  * back to top button function
  */
 jQuery(document).ready(function($) {
@@ -51,62 +29,3 @@ jQuery(document).ready(function($) {
 	});
 
 });
-
-/**
- * this swaps out our caret and the position of our dropdown if the element is offscreen
- */
-(function($) {
-
-	$(".dropdown li").on('mouseenter mouseleave', function (e) {
-
-		if ($(this).hasClass('dropdown')) {
-			var $currentCaret=$(this).children('a').find('span');
-			var $nextDropdownMenu=$(this).children('ul.dropdown-submenu');
-
-			if ($nextDropdownMenu.is(':off-right')) {
-				$nextDropdownMenu.addClass('flip-left');
-
-				if ($currentCaret.hasClass('right-caret')) {
-					$currentCaret.removeClass('right-caret').addClass('left-caret');
-				}
-			}
-		}
-
-	});
-
-})(jQuery);
-
-/*
- * jQuery offscreen plugin
- *
- * Filters that detect when an element is partially or completely outside
- * of the viewport.
- *
- *	Usage:
- *
- *		$('#element').is(':off-bottom')
- *
- * The above example returns true if #element's bottom edge is even 1px past
- * the bottom part of the viewport.
- *
- * Copyright Cory LaViska for A Beautiful Site, LLC. (http://www.abeautifulsite.net/)
- *
- * Licensed under the MIT license: http://opensource.org/licenses/MIT
- *
-*/
-(function($) {
-	$.extend($.expr[':'], {
-		'off-top': function(el) {
-			return $(el).offset().top < $(window).scrollTop();
-		},
-		'off-right': function(el) {
-			return $(el).offset().left + $(el).outerWidth() - $(window).scrollLeft() > $(window).width();
-		},
-		'off-bottom': function(el) {
-			return $(el).offset().top + $(el).outerHeight() - $(window).scrollTop() > $(window).height();
-		},
-		'off-left': function(el) {
-			return $(el).offset().left < $(window).scrollLeft();
-		}
-	});
-})(jQuery);
