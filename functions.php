@@ -86,7 +86,6 @@ function j4k_theme_setup() {
     /**
      * include our customizer functions
      */
-    include_once( get_template_directory() . '/inc/customizer/slider.php' );
     include_once( get_template_directory() . '/inc/customizer/blog-posts.php' );
     include_once( get_template_directory() . '/inc/customizer/general.php' );
 
@@ -169,7 +168,7 @@ add_action( 'widgets_init', 'j4k_theme_widgets_init' );
 function j4k_theme_scripts() {
     global $wp_scripts;
 
-    // enqueue our scripts for bootstrap, slider and theme
+    // enqueue our scripts for bootstrap and theme
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array( 'jquery' ), '4.4.1', true );
     wp_enqueue_script( 'jquery-actual', get_template_directory_uri() . '/inc/js/jquery.actual.js', array( 'jquery' ), '1.0.16', true );

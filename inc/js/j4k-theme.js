@@ -4,13 +4,13 @@
 
 jQuery(window).load(function() {
 
-	jQuery('.koksijde-wp-slider').koksijdeSlider();
+	jQuery('.j4k-wp-slider').j4kSlider();
 
 });
 /**
  * when a panel item (mobile nav) with children is clicked, this changes the +/- icon
  */
-jQuery(document).on('click','.koksijde-mobile-menu .panel-heading.menu-item-has-children a, .koksijde-mobile-menu .panel-collapse .panel-heading a', function(e) {
+jQuery(document).on('click','.j4k-mobile-menu .panel-heading.menu-item-has-children a, .j4k-mobile-menu .panel-collapse .panel-heading a', function(e) {
 	var $this=jQuery(this);
 
 	if ($this.hasClass('collapsed')) {
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 	//duration of the top scrolling animation (in ms)
 	var scroll_top_duration = 700;
 	//grab the "back to top" link
-	$back_to_top = $('.koksijde-back-to-top');
+	$back_to_top = $('.j4k-back-to-top');
 
 	//hide or show the "back to top" link
 	$(window).scroll(function(){
@@ -51,50 +51,6 @@ jQuery(document).ready(function($) {
 	});
 
 });
-
-/**
- * sets the height of our carousel slider
- * because we need it to be responsive, this gets the height of the image and sizes accordingly
- * works on window load and resize
- */
-(function($) {
-	$.fn.koksijdeSlider=function(options) {
-		var opts=$.extend({
-			$item : $('.koksijde-wp-slider .carousel-inner > .item'),
-			$img : $('.koksijde-wp-slider .carousel-inner > .item > img')
-		}, options);
-
-		var init = function() {
-			setItemHeight();
-		};
-
-		var setItemHeight = function() {
-			var maxHeight=9999;
-
-			// gets the max height by finidng the smallest image size //
-			opts.$img.each(function() {
-				if ($(this).actual('outerHeight') && $(this).actual('outerHeight')<=maxHeight) {
-					maxHeight=$(this).actual('outerHeight');
-				}
-			});
-
-			// sets each item with out max height //
-			opts.$item.each(function() {
-				opts.$item.css({
-					height : maxHeight
-				});
-			});
-
-		};
-
-		$(window).on('resize',function() {
-			setItemHeight();
-		});
-
-		init();
-
-	};
-})(jQuery);
 
 /**
  * this swaps out our caret and the position of our dropdown if the element is offscreen
