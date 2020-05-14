@@ -93,8 +93,6 @@ function j4k_theme_setup() {
     register_nav_menus(
         array(
             'primary' => __( 'Primary Menu', 'j4k' ),
-            'mobile' => __( 'Mobile Menu', 'j4k' ),
-            'secondary' => __( 'Secondary Menu', 'j4k' ),
         )
     );
 
@@ -281,45 +279,6 @@ function j4k_display_meta_description() {
 
     return false;
 }
-
-/**
- * j4k_header_markup function.
- *
- * @access public
- * @return void
- */
-function j4k_header_markup() {
-    $html = null;
-
-    if ( get_header_image() ) :
-        $html .= '<div class="j4k-header-image">';
-            $html .= '<img src="' . esc_url( get_header_image() ) . '" height="' . absint( get_custom_header()->height ) . '" width="' . absint( get_custom_header()->width ) . '" alt="" />';
-        $html .= '</div>';
-    endif;
-
-    echo $html;
-}
-
-/**
- * j4k_theme_special_nav_classes function.
- *
- * allows us to add more specific classes to the wp nav menu
- * more specifically, we can add a logo class depending on theme options
- *
- * @access public
- * @param mixed $args
- * @return void
- */
-function j4k_theme_special_nav_classes( $args ) {
-    global $j4k_theme_options;
-
-    if ( isset( $j4k_theme_options['default']['logo']['image'] ) && $j4k_theme_options['default']['logo']['image'] != '' ) {
-        $args['menu_class'] .= ' logo';
-    }
-
-    return $args;
-}
-add_filter( 'wp_nav_menu_args', 'j4k_theme_special_nav_classes', 10, 1 );
 
 /**
  * j4k_mobile_navigation_setup function.
