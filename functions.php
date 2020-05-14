@@ -171,7 +171,6 @@ function j4k_theme_scripts() {
     // enqueue our scripts for bootstrap and theme
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array( 'jquery' ), '4.4.1', true );
-    wp_enqueue_script( 'jquery-actual', get_template_directory_uri() . '/inc/js/jquery.actual.js', array( 'jquery' ), '1.0.16', true );
     wp_enqueue_script( 'j4k-theme-script', get_template_directory_uri() . '/inc/js/j4k-theme.js', array( 'jquery' ), '1.0.2', true );
 
     if ( is_singular() ) {
