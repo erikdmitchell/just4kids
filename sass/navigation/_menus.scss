@@ -73,6 +73,12 @@
 }
 
 /* Small menu. */
+.menu-toggle {
+    float: right;
+	background: $color__mobile-menu-button-background;
+	color: $color__mobile-menu-button-color;
+    border-color: $color__mobile-menu-button-border;
+}
 .menu-toggle,
 .main-navigation.toggled ul {
 	display: block;
