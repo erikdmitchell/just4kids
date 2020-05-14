@@ -122,17 +122,6 @@ function j4k_theme_widgets_init() {
         )
     );
 
-    register_sidebar(
-        array(
-            'name' => 'Footer 3',
-            'id' => 'footer-3',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
 }
 add_action( 'widgets_init', 'j4k_theme_widgets_init' );
 
