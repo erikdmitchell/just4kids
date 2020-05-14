@@ -62,10 +62,10 @@
 		display: block;
 		text-decoration: none;
 		padding-right: 15px;
-		color: #000;
+		//color: #000;
 		
 		&:hover {
-    		color: #777;
+    		//color: #777;
 		}
 	}
 
@@ -73,7 +73,7 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
-    	color: #777;
+    	//color: #777;
 	}
 }
 
@@ -120,6 +120,6 @@
 	
 	a {
     	text-decoration: none;
-    	color: #000;
+    	//color: #000;
 	}
 }

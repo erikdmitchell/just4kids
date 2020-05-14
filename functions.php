@@ -102,17 +102,6 @@ function j4k_theme_widgets_init() {
 
     register_sidebar(
         array(
-            'name' => 'Sidebar',
-            'id' => 'sidebar',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
-    register_sidebar(
-        array(
             'name' => 'Footer 1',
             'id' => 'footer-1',
             'before_widget' => '',
@@ -126,17 +115,6 @@ function j4k_theme_widgets_init() {
         array(
             'name' => 'Footer 2',
             'id' => 'footer-2',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
-    register_sidebar(
-        array(
-            'name' => 'Footer 3',
-            'id' => 'footer-3',
             'before_widget' => '',
             'after_widget' => '',
             'before_title' => '<h3>',
@@ -264,49 +242,6 @@ function j4k_display_meta_description() {
     endif;
 
     return false;
-}
-
-/**
- * j4k_mobile_navigation_setup function.
- *
- * checks if we have an active mobile menu
- * if active mobile, sets it, if not, default to primary
- *
- * @access public
- * @return void
- */
-function j4k_mobile_navigation_setup() {
-    $html = null;
-
-    if ( has_nav_menu( 'mobile' ) ) :
-        $location = 'mobile';
-    else :
-        $location = 'primary';
-    endif;
-
-    $location = apply_filters( 'j4k_mobile_navigation_setup_location', $location );
-
-    if ( $location == 'primary' && ! has_nav_menu( $location ) ) {
-        return false;
-    }
-
-    $html .= '<div id="j4k-mobile-nav" class="collapse j4k-mobile-menu hidden-sm hidden-md hidden-lg">';
-
-        $html .= wp_nav_menu(
-            array(
-                'theme_location' => $location,
-                'container' => 'div',
-                'container_class' => 'panel-group navbar-nav',
-                'container_id' => 'accordion',
-                'echo' => false,
-                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                'walker' => new j4kMobileNavWalker(),
-            )
-        );
-
-    $html .= '</div><!-- .j4k-theme-mobile-menu -->';
-
-    echo apply_filters( 'j4k_mobile_navigation', $html );
 }
 
 /**

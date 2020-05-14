@@ -3,15 +3,14 @@
             <div class="footer-widgets">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
-                            <?php // dynamic_sidebar('footer-1'); ?>
+                        <div class="col-xs-12 col-md-6">
                             <?php echo do_shortcode( '[mappress mapid="1" width="100%"]' ); ?>
                         </div>
-                        <div class="col-md-4">
-                            <?php dynamic_sidebar( 'footer-2' ); ?>
+                        <div class="col-xs-12 col-md-3">
+                            <?php dynamic_sidebar( 'footer-1' ); ?>
                         </div>
-                        <div class="col-md-4">
-                            <?php dynamic_sidebar( 'footer-3' ); ?>
+                        <div class="col-xs-12 col-md-3">
+                            <?php dynamic_sidebar( 'footer-2' ); ?>
                         </div>
                     </div>
                 </div> <!-- /container -->
