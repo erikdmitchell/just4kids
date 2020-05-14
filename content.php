@@ -4,9 +4,10 @@
  *
  * Used for both single and index/archive/search. -- Currently page.php and index.php
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

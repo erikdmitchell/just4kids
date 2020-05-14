@@ -6,7 +6,7 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
 

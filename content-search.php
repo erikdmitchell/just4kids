@@ -2,9 +2,10 @@
 /**
  * The template part for displaying results in search pages
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
