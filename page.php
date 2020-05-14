@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="row content">
-        <div class="col-md-8">
+        <div class="col-xs-12">
             <?php
             if ( have_posts() ) :
                 while ( have_posts() ) :
@@ -32,9 +32,6 @@
                             <?php endwhile; else : ?>
                 <p><?php _e( 'Sorry, this page does not exist.', 'j4k' ); ?></p>
             <?php endif; ?>
-        </div>
-        <div class="col-md-4">
-            <?php get_sidebar(); ?>
         </div>
     </div>
 </div><!-- .container -->
