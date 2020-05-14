@@ -21,7 +21,6 @@
 
         <div class="container-fluid primary-nav">
             <div class="container">
-                <?php j4k_header_logo(); ?>
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".j4k-mobile-menu">
@@ -30,6 +29,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+                        <a class="navbar-brand" href="">just4kidspediatrics.com</a>
+                                        <?php j4k_header_logo(); ?>
                     </div>
                     <div class="collapse navbar-collapse primary-menu">
                         <?php
@@ -47,3 +48,4 @@
                 </nav>
             </div><!-- .container -->
         </div><!-- .navigation -->
+
