@@ -1,0 +1,44 @@
+footer { 
+    background: $footer_background-main;
+    color: $footer_text;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    font-size: 14px;
+
+    .footer-widgets {
+        padding: 10px 0 20px 0;
+        overflow: hidden;
+        
+        h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;           
+        }
+        
+        p {
+            margin-bottom: 0;
+        }
+        
+        a {
+        	color: $footer_color-link;
+        	text-decoration: none;
+        
+        	&:visited {
+        		color: $footer_color-link-visited;
+        	}
+        
+        	&:hover,
+        	&:focus,
+        	&:active {
+        		color: $footer_color-link-hover;
+        	}
+        }
+    }
+    
+    .copyright {
+        padding: 10px 0;
+        text-align: center;
+        margin: 20px 0 0 0;
+        color: #fff;
+        background: $footer_background-copyright;
+    }    
+}
