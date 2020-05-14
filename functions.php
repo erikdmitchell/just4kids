@@ -78,17 +78,6 @@ function j4k_theme_setup() {
      */
     include_once( get_template_directory() . '/inc/mobile_nav_walker.php' );
 
-    /**
-     * include our customizer settings
-     */
-    include_once( get_template_directory() . '/inc/customizer/customizer.php' );
-
-    /**
-     * include our customizer functions
-     */
-    include_once( get_template_directory() . '/inc/customizer/blog-posts.php' );
-    include_once( get_template_directory() . '/inc/customizer/general.php' );
-
     // register our navigation area
     register_nav_menus(
         array(
@@ -324,37 +313,6 @@ function j4k_mobile_navigation_setup() {
 }
 
 /**
- * j4k_secondary_navigation_setup function.
- *
- * if our secondary menu is set, this shows it
- *
- * @access public
- * @return void
- */
-function j4k_secondary_navigation_setup() {
-    $html = null;
-
-    if ( ! has_nav_menu( 'secondary' ) ) {
-        return false;
-    }
-
-    $html .= '<div class="collapse navbar-collapse secondary-menu">';
-        $html .= wp_nav_menu(
-            array(
-                'theme_location' => 'secondary',
-                'container' => false,
-                'menu_class' => 'nav navbar-nav pull-right secondary',
-                'echo' => false,
-                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                'walker' => new wp_bootstrap_navwalker(),
-            )
-        );
-    $html .= '</div> <!-- .secondary-menu -->';
-
-    echo apply_filters( 'j4k_secondary_navigation', $html );
-}
-
-/**
  * j4k_back_to_top function.
  *
  * @access public
@@ -473,18 +431,3 @@ function j4k_array_recursive_diff( $aArray1, $aArray2 ) {
     }
     return $aReturn;
 }
-
-/**
- * j4k_home_image function.
- *
- * @access public
- * @return void
- */
-function j4k_home_image() {
-    global $post;
-
-    $thumb_url = get_the_post_thumbnail_url( $post->ID, 'j4k-home-image' );
-
-    echo '<div style="background-image: url(' . $thumb_url . ')"></div>';
-}
-
