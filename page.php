@@ -17,8 +17,12 @@
     </div>
     <div class="row content">
         <div class="col-12">
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-                <?php get_template_part( 'content' ); ?>
+            <?php
+            if ( have_posts() ) :
+                while ( have_posts() ) :
+                    the_post();
+                    ?>
+                    <?php get_template_part( 'content' ); ?>
             <?php endwhile; else : ?>
                 <p><?php _e( 'Sorry, this page does not exist.', 'j4k' ); ?></p>
             <?php endif; ?>
@@ -26,4 +30,5 @@
     </div>
 </div><!-- .container -->
 
-<?php get_footer();
+<?php
+get_footer();
