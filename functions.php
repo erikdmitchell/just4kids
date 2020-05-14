@@ -102,17 +102,6 @@ function j4k_theme_widgets_init() {
 
     register_sidebar(
         array(
-            'name' => 'Sidebar',
-            'id' => 'sidebar',
-            'before_widget' => '',
-            'after_widget' => '',
-            'before_title' => '<h3>',
-            'after_title' => '</h3>',
-        )
-    );
-
-    register_sidebar(
-        array(
             'name' => 'Footer 1',
             'id' => 'footer-1',
             'before_widget' => '',
