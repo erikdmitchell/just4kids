@@ -2,9 +2,10 @@
 /**
  * The template for displaying search results pages.
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
+ 
 ?>
 <?php get_header(); ?>
 

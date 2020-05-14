@@ -4,7 +4,7 @@
  *
  * The area of the page that contains comments and the comment form.
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
 

@@ -2,9 +2,10 @@
 /**
  * The template part for displaying a message that posts cannot be found
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
+
 ?>
 
 <div class="no-results not-found">

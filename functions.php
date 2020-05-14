@@ -6,7 +6,7 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * @subpackage j4k
+ * @package j4k
  * @since j4k 1.0.0
  */
 
@@ -67,16 +67,6 @@ function j4k_theme_setup() {
     add_image_size( 'j4k-navbar-logo', 163, 100, true );
     add_image_size( 'j4k-home-image', 9999, 400, true );
     add_image_size( 'j4k-home-blog-post-image', 555, 225, true );
-
-    /**
-     * include bootstrap nav walker
-     */
-    include_once( get_template_directory() . '/inc/wp-bootstrap-navwalker.php' );
-
-    /**
-     * include bootstrap mobile nav walker
-     */
-    include_once( get_template_directory() . '/inc/mobile_nav_walker.php' );
 
     // register our navigation area
     register_nav_menus(
