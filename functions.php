@@ -431,3 +431,7 @@ function j4k_array_recursive_diff( $aArray1, $aArray2 ) {
     }
     return $aReturn;
 }
+
+function j4k_header_logo() {
+    echo '<img src="'.get_stylesheet_directory_uri().'/inc/images/just4kids-logo.png" alt="j4k-logo" />';
+}

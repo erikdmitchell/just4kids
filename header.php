@@ -21,6 +21,7 @@
 
         <div class="container-fluid primary-nav">
             <div class="container">
+                <?php j4k_header_logo(); ?>
                 <nav class="navbar navbar-default" role="navigation">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".j4k-mobile-menu">
@@ -29,24 +30,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-
-<div class="j4k-header-wrap ">
-    <?php j4k_header_markup(); ?>
-    
-    <?php if ( display_header_text() ) : ?>
-        <div class="j4k-header-text">
-            <a class="site-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
-        
-            <?php $description = get_bloginfo( 'description', 'display' ); ?>
-            <?php if ( $description || is_customize_preview() ) : ?>
-                <p class="site-description"><?php echo $description; ?></p>
-            <?php endif; ?>
-        </div>
-    <?php endif; ?>
-</div>
-
                     </div>
-                    <?php j4k_secondary_navigation_setup(); ?>
                     <div class="collapse navbar-collapse primary-menu">
                         <?php
                         wp_nav_menu(
@@ -60,7 +44,6 @@
                         );
                         ?>
                     </div> <!-- .primary-menu -->
-                    <?php j4k_mobile_navigation_setup(); ?>
                 </nav>
             </div><!-- .container -->
         </div><!-- .navigation -->
