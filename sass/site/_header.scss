@@ -1,18 +1,11 @@
 .site-header {
-    padding: 30px 15px;
-     
-    .site-branding {
-        .navbar-brand {
-            color: #777;
-            //float: left;
-            font-size: 18px;
-            line-height: 20px;
-            text-decoration: none;
-        }
-    }
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
-    .main-navigation {
-        //float: right;
-        //width: auto;        
+    .site-branding {
+        margin-right: 1rem;
     }
 }
