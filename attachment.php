@@ -2,8 +2,8 @@
 /**
  * The template for displaying attachments
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 <?php get_header(); ?>
@@ -19,10 +19,10 @@
                     <div class="entry-meta">
                         <?php
                         if ( 'post' == get_post_type() ) {
-                            koksijde_theme_posted_on();
+                            j4k_theme_posted_on();
                         }
 
-                        edit_post_link( __( 'Edit', 'koksijde' ), '<span class="edit-link"><span class="glyphicon glyphicon-pencil"></span>', '</span>' );
+                        edit_post_link( __( 'Edit', 'j4k' ), '<span class="edit-link"><span class="glyphicon glyphicon-pencil"></span>', '</span>' );
                         ?>
                     </div><!-- .entry-meta -->
                 </header><!-- .entry-header -->

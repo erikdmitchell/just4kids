@@ -6,25 +6,25 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 
 /**
  * Set our global variables for theme options.
  *
- * @since koksijde 1.0.0
+ * @since j4k 1.0.0
  */
-if ( ! isset( $koksijde_theme_options ) ) {
-    $koksijde_theme_options = array( 'option_name' => 'koksijde_theme_options' );
+if ( ! isset( $j4k_theme_options ) ) {
+    $j4k_theme_options = array( 'option_name' => 'j4k_theme_options' );
 }
 
-if ( ! isset( $koksijde_theme_options_tabs ) ) {
-    $koksijde_theme_options_tabs = array();
+if ( ! isset( $j4k_theme_options_tabs ) ) {
+    $j4k_theme_options_tabs = array();
 }
 
-if ( ! isset( $koksijde_theme_options_hooks ) ) {
-    $koksijde_theme_options_hooks = array();
+if ( ! isset( $j4k_theme_options_hooks ) ) {
+    $j4k_theme_options_hooks = array();
 }
 
 /**
@@ -34,11 +34,11 @@ if ( ! isset( $koksijde_theme_options_hooks ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  *
- * @since koksijde 1.0.0
+ * @since j4k 1.0.0
  */
-function koksijde_theme_setup() {
+function j4k_theme_setup() {
     // Set the content width based on the theme's design and stylesheet //
-    $GLOBALS['content_width'] = apply_filters( 'koksijde_content_width', 1200 );
+    $GLOBALS['content_width'] = apply_filters( 'j4k_content_width', 1200 );
 
     /**
      * add our theme support options
@@ -64,9 +64,9 @@ function koksijde_theme_setup() {
     /**
      * add our image size(s)
      */
-    add_image_size( 'koksijde-navbar-logo', 163, 100, true );
-    add_image_size( 'koksijde-home-image', 9999, 400, true );
-    add_image_size( 'koksijde-home-blog-post-image', 555, 225, true );
+    add_image_size( 'j4k-navbar-logo', 163, 100, true );
+    add_image_size( 'j4k-home-image', 9999, 400, true );
+    add_image_size( 'j4k-home-blog-post-image', 555, 225, true );
 
     /**
      * include bootstrap nav walker
@@ -93,9 +93,9 @@ function koksijde_theme_setup() {
     // register our navigation area
     register_nav_menus(
         array(
-            'primary' => __( 'Primary Menu', 'koksijde' ),
-            'mobile' => __( 'Mobile Menu', 'koksijde' ),
-            'secondary' => __( 'Secondary Menu', 'koksijde' ),
+            'primary' => __( 'Primary Menu', 'j4k' ),
+            'mobile' => __( 'Mobile Menu', 'j4k' ),
+            'secondary' => __( 'Secondary Menu', 'j4k' ),
         )
     );
 
@@ -105,14 +105,14 @@ function koksijde_theme_setup() {
     add_editor_style( 'inc/css/editor-style.css' );
 
 }
-add_action( 'after_setup_theme', 'koksijde_theme_setup' );
+add_action( 'after_setup_theme', 'j4k_theme_setup' );
 
 /**
  * Register widget area.
  *
- * @since koksijde 1.0.0
+ * @since j4k 1.0.0
  */
-function koksijde_theme_widgets_init() {
+function j4k_theme_widgets_init() {
 
     register_sidebar(
         array(
@@ -159,21 +159,21 @@ function koksijde_theme_widgets_init() {
     );
 
 }
-add_action( 'widgets_init', 'koksijde_theme_widgets_init' );
+add_action( 'widgets_init', 'j4k_theme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  *
- * @since koksijde 1.1.9
+ * @since j4k 1.1.9
  */
-function koksijde_theme_scripts() {
+function j4k_theme_scripts() {
     global $wp_scripts;
 
     // enqueue our scripts for bootstrap, slider and theme
     wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array( 'jquery' ), '4.4.1', true );
     wp_enqueue_script( 'jquery-actual', get_template_directory_uri() . '/inc/js/jquery.actual.js', array( 'jquery' ), '1.0.16', true );
-    wp_enqueue_script( 'koksijde-theme-script', get_template_directory_uri() . '/inc/js/koksijde-theme.js', array( 'jquery' ), '1.0.2', true );
+    wp_enqueue_script( 'j4k-theme-script', get_template_directory_uri() . '/inc/js/j4k-theme.js', array( 'jquery' ), '1.0.2', true );
 
     if ( is_singular() ) {
         wp_enqueue_script( 'comment-reply' );
@@ -194,9 +194,9 @@ function koksijde_theme_scripts() {
     // enqueue font awesome and our main stylesheet
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/fa.min.css', array(), '5.13.0' );
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), '4.4.1' );
-    wp_enqueue_style( 'koksijde-theme-style', get_stylesheet_uri() );
+    wp_enqueue_style( 'j4k-theme-style', get_stylesheet_uri() );
 }
-add_action( 'wp_enqueue_scripts', 'koksijde_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'j4k_theme_scripts' );
 
 /**
  * Display an optional post thumbnail.
@@ -204,12 +204,12 @@ add_action( 'wp_enqueue_scripts', 'koksijde_theme_scripts' );
  * Wraps the post thumbnail in an anchor element on index
  * views, or a div element when on single views.
  *
- * @since koksijde 1.0
+ * @since j4k 1.0
  * @based on twentyfourteen
  *
  * @return void
  */
-function koksijde_theme_post_thumbnail( $size = 'full' ) {
+function j4k_theme_post_thumbnail( $size = 'full' ) {
     global $post;
 
     $html = null;
@@ -231,7 +231,7 @@ function koksijde_theme_post_thumbnail( $size = 'full' ) {
         $html .= '</a>';
     endif;
 
-    $image = apply_filters( 'koksijde_theme_post_thumbnail', $html, $size, $attr );
+    $image = apply_filters( 'j4k_theme_post_thumbnail', $html, $size, $attr );
 
     echo $image;
 }
@@ -239,34 +239,34 @@ function koksijde_theme_post_thumbnail( $size = 'full' ) {
 /**
  * Print HTML with meta information for the current post-date/time and author.
  *
- * @since koksijde 1.0
+ * @since j4k 1.0
  * @based on twentyfourteen
  *
  * @return void
  */
-function koksijde_theme_posted_on() {
+function j4k_theme_posted_on() {
     $html = null;
 
     if ( is_sticky() && is_home() && ! is_paged() ) :
-        $html = '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'koksijde' ) . '</span>';
+        $html = '<span class="featured-post"><span class="glyphicon glyphicon-pushpin"></span>' . __( 'Sticky', 'j4k' ) . '</span>';
     elseif ( ! is_sticky() ) :     // Set up and print post meta information. -- hide date if sticky
         $html = '<span class="entry-date"><span class="glyphicon glyphicon-time"></span><a href="' . esc_url( get_permalink() ) . '" rel="bookmark"><time class="entry-date" datetime="' . get_the_date( 'c' ) . '">' . get_the_date() . '</time></a></span>';
     else :
         $html = '<span class="byline"><span class="glyphicon glyphicon-user"></span><span class="author vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" rel="author">' . get_the_author() . '</a></span></span>';
     endif;
 
-    echo apply_filters( 'koksijde_posted_on', $html );
+    echo apply_filters( 'j4k_posted_on', $html );
 }
 
 /**
- * koksijde_display_meta_description function.
+ * j4k_display_meta_description function.
  *
  * a custom function to display a meta description for our site pages
  *
  * @access public
  * @return void
  */
-function koksijde_display_meta_description() {
+function j4k_display_meta_description() {
     global $post;
 
     $title = null;
@@ -276,25 +276,25 @@ function koksijde_display_meta_description() {
     }
 
     if ( is_single() ) :
-        return apply_filters( 'koksijde_display_meta_description', single_post_title( '', false ) );
+        return apply_filters( 'j4k_display_meta_description', single_post_title( '', false ) );
     else :
-        return apply_filters( 'koksijde_display_meta_description', $title . ' - ' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ) );
+        return apply_filters( 'j4k_display_meta_description', $title . ' - ' . get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ) );
     endif;
 
     return false;
 }
 
 /**
- * koksijde_header_markup function.
+ * j4k_header_markup function.
  *
  * @access public
  * @return void
  */
-function koksijde_header_markup() {
+function j4k_header_markup() {
     $html = null;
 
     if ( get_header_image() ) :
-        $html .= '<div class="koksijde-header-image">';
+        $html .= '<div class="j4k-header-image">';
             $html .= '<img src="' . esc_url( get_header_image() ) . '" height="' . absint( get_custom_header()->height ) . '" width="' . absint( get_custom_header()->width ) . '" alt="" />';
         $html .= '</div>';
     endif;
@@ -303,7 +303,7 @@ function koksijde_header_markup() {
 }
 
 /**
- * koksijde_theme_special_nav_classes function.
+ * j4k_theme_special_nav_classes function.
  *
  * allows us to add more specific classes to the wp nav menu
  * more specifically, we can add a logo class depending on theme options
@@ -312,19 +312,19 @@ function koksijde_header_markup() {
  * @param mixed $args
  * @return void
  */
-function koksijde_theme_special_nav_classes( $args ) {
-    global $koksijde_theme_options;
+function j4k_theme_special_nav_classes( $args ) {
+    global $j4k_theme_options;
 
-    if ( isset( $koksijde_theme_options['default']['logo']['image'] ) && $koksijde_theme_options['default']['logo']['image'] != '' ) {
+    if ( isset( $j4k_theme_options['default']['logo']['image'] ) && $j4k_theme_options['default']['logo']['image'] != '' ) {
         $args['menu_class'] .= ' logo';
     }
 
     return $args;
 }
-add_filter( 'wp_nav_menu_args', 'koksijde_theme_special_nav_classes', 10, 1 );
+add_filter( 'wp_nav_menu_args', 'j4k_theme_special_nav_classes', 10, 1 );
 
 /**
- * koksijde_mobile_navigation_setup function.
+ * j4k_mobile_navigation_setup function.
  *
  * checks if we have an active mobile menu
  * if active mobile, sets it, if not, default to primary
@@ -332,7 +332,7 @@ add_filter( 'wp_nav_menu_args', 'koksijde_theme_special_nav_classes', 10, 1 );
  * @access public
  * @return void
  */
-function koksijde_mobile_navigation_setup() {
+function j4k_mobile_navigation_setup() {
     $html = null;
 
     if ( has_nav_menu( 'mobile' ) ) :
@@ -341,13 +341,13 @@ function koksijde_mobile_navigation_setup() {
         $location = 'primary';
     endif;
 
-    $location = apply_filters( 'koksijde_mobile_navigation_setup_location', $location );
+    $location = apply_filters( 'j4k_mobile_navigation_setup_location', $location );
 
     if ( $location == 'primary' && ! has_nav_menu( $location ) ) {
         return false;
     }
 
-    $html .= '<div id="koksijde-mobile-nav" class="collapse koksijde-mobile-menu hidden-sm hidden-md hidden-lg">';
+    $html .= '<div id="j4k-mobile-nav" class="collapse j4k-mobile-menu hidden-sm hidden-md hidden-lg">';
 
         $html .= wp_nav_menu(
             array(
@@ -357,24 +357,24 @@ function koksijde_mobile_navigation_setup() {
                 'container_id' => 'accordion',
                 'echo' => false,
                 'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                'walker' => new koksijdeMobileNavWalker(),
+                'walker' => new j4kMobileNavWalker(),
             )
         );
 
-    $html .= '</div><!-- .koksijde-theme-mobile-menu -->';
+    $html .= '</div><!-- .j4k-theme-mobile-menu -->';
 
-    echo apply_filters( 'koksijde_mobile_navigation', $html );
+    echo apply_filters( 'j4k_mobile_navigation', $html );
 }
 
 /**
- * koksijde_secondary_navigation_setup function.
+ * j4k_secondary_navigation_setup function.
  *
  * if our secondary menu is set, this shows it
  *
  * @access public
  * @return void
  */
-function koksijde_secondary_navigation_setup() {
+function j4k_secondary_navigation_setup() {
     $html = null;
 
     if ( ! has_nav_menu( 'secondary' ) ) {
@@ -394,26 +394,26 @@ function koksijde_secondary_navigation_setup() {
         );
     $html .= '</div> <!-- .secondary-menu -->';
 
-    echo apply_filters( 'koksijde_secondary_navigation', $html );
+    echo apply_filters( 'j4k_secondary_navigation', $html );
 }
 
 /**
- * koksijde_back_to_top function.
+ * j4k_back_to_top function.
  *
  * @access public
  * @return void
  */
-function koksijde_back_to_top() {
+function j4k_back_to_top() {
     $html = null;
 
-    $html .= '<a href="#0" class="koksijde-back-to-top"></a>';
+    $html .= '<a href="#0" class="j4k-back-to-top"></a>';
 
-    echo apply_filters( 'koksijde_back_to_top', $html );
+    echo apply_filters( 'j4k_back_to_top', $html );
 }
-add_action( 'wp_footer', 'koksijde_back_to_top' );
+add_action( 'wp_footer', 'j4k_back_to_top' );
 
 /**
- * koksijde_wp_parse_args function.
+ * j4k_wp_parse_args function.
  *
  * Similar to wp_parse_args() just a bit extended to work with multidimensional arrays
  *
@@ -422,14 +422,14 @@ add_action( 'wp_footer', 'koksijde_back_to_top' );
  * @param mixed $b
  * @return void
  */
-function koksijde_wp_parse_args( &$a, $b ) {
+function j4k_wp_parse_args( &$a, $b ) {
     $a = (array) $a;
     $b = (array) $b;
     $result = $b;
 
     foreach ( $a as $k => &$v ) {
         if ( is_array( $v ) && isset( $result[ $k ] ) ) {
-            $result[ $k ] = koksijde_wp_parse_args( $v, $result[ $k ] );
+            $result[ $k ] = j4k_wp_parse_args( $v, $result[ $k ] );
         } else {
             $result[ $k ] = $v;
         }
@@ -439,7 +439,7 @@ function koksijde_wp_parse_args( &$a, $b ) {
 }
 
 /**
- * koksijde_get_excerpt_by_id function.
+ * j4k_get_excerpt_by_id function.
  *
  * @access public
  * @param string $post (default: '')
@@ -448,7 +448,7 @@ function koksijde_wp_parse_args( &$a, $b ) {
  * @param string $extra (default: '...')
  * @return void
  */
-function koksijde_get_excerpt_by_id( $post = '', $length = 10, $tags = '<a><em><strong>', $extra = '...' ) {
+function j4k_get_excerpt_by_id( $post = '', $length = 10, $tags = '<a><em><strong>', $extra = '...' ) {
     // if post is id, get the post, if it's the object we are ok, else bail //
     if ( is_int( $post ) ) :
         $post = get_post( $post );
@@ -474,13 +474,13 @@ function koksijde_get_excerpt_by_id( $post = '', $length = 10, $tags = '<a><em><
 }
 
 /**
- * koksijde_theme_get_image_id_from_url function.
+ * j4k_theme_get_image_id_from_url function.
  *
  * @access public
  * @param mixed $image_url
  * @return void
  */
-function koksijde_theme_get_image_id_from_url( $image_url ) {
+function j4k_theme_get_image_id_from_url( $image_url ) {
     global $wpdb;
 
     $attachment = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url ) );
@@ -489,20 +489,20 @@ function koksijde_theme_get_image_id_from_url( $image_url ) {
 }
 
 /**
- * koksijde_array_recursive_diff function.
+ * j4k_array_recursive_diff function.
  *
  * @access public
  * @param mixed $aArray1
  * @param mixed $aArray2
  * @return void
  */
-function koksijde_array_recursive_diff( $aArray1, $aArray2 ) {
+function j4k_array_recursive_diff( $aArray1, $aArray2 ) {
     $aReturn = array();
 
     foreach ( $aArray1 as $mKey => $mValue ) {
         if ( array_key_exists( $mKey, $aArray2 ) ) {
             if ( is_array( $mValue ) ) {
-                $aRecursiveDiff = koksijde_array_recursive_diff( $mValue, $aArray2[ $mKey ] );
+                $aRecursiveDiff = j4k_array_recursive_diff( $mValue, $aArray2[ $mKey ] );
                 if ( count( $aRecursiveDiff ) ) {
                     $aReturn[ $mKey ] = $aRecursiveDiff; }
             } else {
@@ -518,15 +518,15 @@ function koksijde_array_recursive_diff( $aArray1, $aArray2 ) {
 }
 
 /**
- * koksijde_home_image function.
+ * j4k_home_image function.
  *
  * @access public
  * @return void
  */
-function koksijde_home_image() {
+function j4k_home_image() {
     global $post;
 
-    $thumb_url = get_the_post_thumbnail_url( $post->ID, 'koksijde-home-image' );
+    $thumb_url = get_the_post_thumbnail_url( $post->ID, 'j4k-home-image' );
 
     echo '<div style="background-image: url(' . $thumb_url . ')"></div>';
 }

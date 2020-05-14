@@ -1,8 +1,8 @@
-<div class="koksijde-header-wrap ">
-    <?php koksijde_header_markup(); ?>
+<div class="j4k-header-wrap ">
+    <?php j4k_header_markup(); ?>
     
     <?php if ( display_header_text() ) : ?>
-        <div class="koksijde-header-text">
+        <div class="j4k-header-text">
             <a class="site-title" href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a>
         
             <?php $description = get_bloginfo( 'description', 'display' ); ?>

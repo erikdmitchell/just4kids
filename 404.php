@@ -2,8 +2,8 @@
 /**
  * The template for displaying 404 pages (Not Found)
  *
- * @subpackage koksijde
- * @since koksijde 1.1.0
+ * @subpackage j4k
+ * @since j4k 1.1.0
  */
 ?>
 <?php get_header(); ?>
@@ -15,12 +15,12 @@
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                 <header class="entry-header">
-                    <h1 class="page-title"><?php _e( 'Not Found', 'koksijde' ); ?></h1>
+                    <h1 class="page-title"><?php _e( 'Not Found', 'j4k' ); ?></h1>
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <h2><?php _e( "This is somewhat embarrassing, isn't it?", 'koksijde' ); ?></h2>
-                    <p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'koksijde' ); ?></p>
+                    <h2><?php _e( "This is somewhat embarrassing, isn't it?", 'j4k' ); ?></h2>
+                    <p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'j4k' ); ?></p>
 
                     <?php get_search_form(); ?>
                 </div><!-- .entry-content -->

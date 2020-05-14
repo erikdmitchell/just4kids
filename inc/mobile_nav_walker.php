@@ -1,10 +1,10 @@
 <?php
 /**
- * koksijdeMobileNavWalker class.
+ * j4kMobileNavWalker class.
  *
  * @extends Walker_Nav_Menu
  */
-class koksijdeMobileNavWalker extends Walker_Nav_Menu {
+class j4kMobileNavWalker extends Walker_Nav_Menu {
 
     private $curItem;
     private $start_lvl_counter = 0;

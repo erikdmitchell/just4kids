@@ -4,8 +4,8 @@
  *
  * Used to display archive-type pages for posts in a tag.
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 <?php get_header(); ?>
@@ -15,7 +15,7 @@
         <div class="col-md-8">
             <?php if ( have_posts() ) : ?>
                 <header class="archive-header">
-                    <h1 class="archive-title"><?php printf( __( 'Tag Archives: %s', 'koksijde' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
+                    <h1 class="archive-title"><?php printf( __( 'Tag Archives: %s', 'j4k' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1>
 
                     <?php if ( tag_description() ) : // Show an optional tag description ?>
                         <div class="archive-meta"><?php echo tag_description(); ?></div>
@@ -32,8 +32,8 @@
                 <?php
                 the_posts_navigation(
                     array(
-                        'prev_text' => __( '&laquo; Older Posts', 'koksijde' ),
-                        'next_text' => __( 'Newer Posts &raquo;', 'koksijde' ),
+                        'prev_text' => __( '&laquo; Older Posts', 'j4k' ),
+                        'next_text' => __( 'Newer Posts &raquo;', 'j4k' ),
                     )
                 );
                 ?>

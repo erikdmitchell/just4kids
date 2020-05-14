@@ -2,8 +2,8 @@
 /**
  * The template for displaying search results pages.
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 <?php get_header(); ?>
@@ -14,7 +14,7 @@
 
             <?php if ( have_posts() ) : ?>
                 <header class="page-header">
-                    <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'koksijde' ), get_search_query() ); ?></h1>
+                    <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'j4k' ), get_search_query() ); ?></h1>
                 </header><!-- .page-header -->
 
                 <?php
@@ -27,8 +27,8 @@
                 <?php
                 the_posts_navigation(
                     array(
-                        'prev_text' => __( '&laquo; Older Posts', 'koksijde' ),
-                        'next_text' => __( 'Newer Posts &raquo;', 'koksijde' ),
+                        'prev_text' => __( '&laquo; Older Posts', 'j4k' ),
+                        'next_text' => __( 'Newer Posts &raquo;', 'j4k' ),
                     )
                 );
                 ?>

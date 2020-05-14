@@ -13,9 +13,9 @@
  */
 
 /* Check if Class Exists. */
-if ( ! class_exists( 'koksijde_wp_bootstrap_navwalker' ) ) {
+if ( ! class_exists( 'j4k_wp_bootstrap_navwalker' ) ) {
 
-    class koksijde_wp_bootstrap_navwalker extends Walker_Nav_Menu {
+    class j4k_wp_bootstrap_navwalker extends Walker_Nav_Menu {
 
             /**
              * @see Walker::start_lvl()

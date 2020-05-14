@@ -2,8 +2,8 @@
 /**
  * The template for displaying a page
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 
@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <?php koksijde_theme_post_thumbnail(); ?>
+            <?php j4k_theme_post_thumbnail(); ?>
         </div>
     </div>
     <div class="row content">
@@ -30,7 +30,7 @@
                     }
                     ?>
                             <?php endwhile; else : ?>
-                <p><?php _e( 'Sorry, this page does not exist.', 'koksijde' ); ?></p>
+                <p><?php _e( 'Sorry, this page does not exist.', 'j4k' ); ?></p>
             <?php endif; ?>
         </div>
         <div class="col-md-4">

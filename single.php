@@ -2,8 +2,8 @@
 /**
  * The template for displaying a single post
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 
@@ -20,8 +20,8 @@
 
                 the_post_navigation(
                     array(
-                        'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' . __( 'Previous Post:', 'koksijde' ) . '</span> <span class="nav-title">%title</span>',
-                        'next_text' => '<span aria-hidden="true" class="nav-subtitle">' . __( 'Next Post:', 'koksijde' ) . '</span> <span class="nav-title">%title</span>',
+                        'prev_text' => '<span aria-hidden="true" class="nav-subtitle">' . __( 'Previous Post:', 'j4k' ) . '</span> <span class="nav-title">%title</span>',
+                        'next_text' => '<span aria-hidden="true" class="nav-subtitle">' . __( 'Next Post:', 'j4k' ) . '</span> <span class="nav-title">%title</span>',
                     )
                 );
 

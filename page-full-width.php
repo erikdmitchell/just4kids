@@ -2,8 +2,8 @@
 /**
  * Template Name: Full Width (no sidebars)
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 <?php get_header(); ?>
@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row content">
         <div class="col-md-12">
-            <?php koksijde_theme_post_thumbnail(); ?>
+            <?php j4k_theme_post_thumbnail(); ?>
 
             <?php
             if ( have_posts() ) :
@@ -26,7 +26,7 @@
                     }
                     ?>
                             <?php endwhile; else : ?>
-                <p><?php _e( 'Sorry, this page does not exist.', 'koksijde' ); ?></p>
+                <p><?php _e( 'Sorry, this page does not exist.', 'j4k' ); ?></p>
             <?php endif; ?>
         </div>
     </div>

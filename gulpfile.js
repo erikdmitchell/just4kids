@@ -250,7 +250,7 @@ function watchFiles() {
 function zip(done) {
   return (
     gulp.src(buildInclude)
-        .pipe(gzip('gulp-standards.zip'))
+        .pipe(gzip('j4k.zip'))
         .pipe(gulp.dest('./../'))
   );
   done();

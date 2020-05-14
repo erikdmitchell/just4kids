@@ -5,8 +5,8 @@
  * Used to display archive-type pages if nothing more specific matches a query.
  * For example, puts together date-based pages if no date.php file exists.
  *
- * @subpackage koksijde
- * @since koksijde 1.0.0
+ * @subpackage j4k
+ * @since j4k 1.0.0
  */
 ?>
 <?php get_header(); ?>
@@ -29,8 +29,8 @@
                 <?php
                 the_posts_navigation(
                     array(
-                        'prev_text' => __( '&laquo; Older Posts', 'koksijde' ),
-                        'next_text' => __( 'Newer Posts &raquo;', 'koksijde' ),
+                        'prev_text' => __( '&laquo; Older Posts', 'j4k' ),
+                        'next_text' => __( 'Newer Posts &raquo;', 'j4k' ),
                     )
                 );
                 ?>
