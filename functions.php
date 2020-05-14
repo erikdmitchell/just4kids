@@ -78,23 +78,10 @@ function j4k_theme_setup() {
      */
     include_once( get_template_directory() . '/inc/mobile_nav_walker.php' );
 
-    /**
-     * include our customizer settings
-     */
-    include_once( get_template_directory() . '/inc/customizer/customizer.php' );
-
-    /**
-     * include our customizer functions
-     */
-    include_once( get_template_directory() . '/inc/customizer/blog-posts.php' );
-    include_once( get_template_directory() . '/inc/customizer/general.php' );
-
     // register our navigation area
     register_nav_menus(
         array(
             'primary' => __( 'Primary Menu', 'j4k' ),
-            'mobile' => __( 'Mobile Menu', 'j4k' ),
-            'secondary' => __( 'Secondary Menu', 'j4k' ),
         )
     );
 
@@ -166,13 +153,10 @@ add_action( 'widgets_init', 'j4k_theme_widgets_init' );
  * @since j4k 1.1.9
  */
 function j4k_theme_scripts() {
-    global $wp_scripts;
-
-    // enqueue our scripts for bootstrap and theme
-    wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array( 'jquery' ), '4.4.1', true );
-    wp_enqueue_script( 'j4k-theme-script', get_template_directory_uri() . '/inc/js/j4k-theme.js', array( 'jquery' ), '1.0.2', true );
-
+    // scripts
+    wp_enqueue_script( 'j4k-theme-script', get_template_directory_uri() . '/inc/js/j4k-theme.js', array( 'jquery' ), '1.0.0', true );
+    wp_enqueue_script( 'j4k-navigation-script', get_template_directory_uri() . '/inc/js/navigation.js', array( 'jquery' ), '1.0.0', true );
+    
     if ( is_singular() ) {
         wp_enqueue_script( 'comment-reply' );
     }
@@ -191,7 +175,7 @@ function j4k_theme_scripts() {
 
     // enqueue font awesome and our main stylesheet
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/inc/css/fa.min.css', array(), '5.13.0' );
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/inc/css/bootstrap.min.css', array(), '4.4.1' );
+    wp_enqueue_style( 'bootstrap-grid', get_template_directory_uri() . '/inc/css/bootstrap-grid.min.css', array(), '4.5.0' );
     wp_enqueue_style( 'j4k-theme-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'j4k_theme_scripts' );
@@ -283,45 +267,6 @@ function j4k_display_meta_description() {
 }
 
 /**
- * j4k_header_markup function.
- *
- * @access public
- * @return void
- */
-function j4k_header_markup() {
-    $html = null;
-
-    if ( get_header_image() ) :
-        $html .= '<div class="j4k-header-image">';
-            $html .= '<img src="' . esc_url( get_header_image() ) . '" height="' . absint( get_custom_header()->height ) . '" width="' . absint( get_custom_header()->width ) . '" alt="" />';
-        $html .= '</div>';
-    endif;
-
-    echo $html;
-}
-
-/**
- * j4k_theme_special_nav_classes function.
- *
- * allows us to add more specific classes to the wp nav menu
- * more specifically, we can add a logo class depending on theme options
- *
- * @access public
- * @param mixed $args
- * @return void
- */
-function j4k_theme_special_nav_classes( $args ) {
-    global $j4k_theme_options;
-
-    if ( isset( $j4k_theme_options['default']['logo']['image'] ) && $j4k_theme_options['default']['logo']['image'] != '' ) {
-        $args['menu_class'] .= ' logo';
-    }
-
-    return $args;
-}
-add_filter( 'wp_nav_menu_args', 'j4k_theme_special_nav_classes', 10, 1 );
-
-/**
  * j4k_mobile_navigation_setup function.
  *
  * checks if we have an active mobile menu
@@ -362,37 +307,6 @@ function j4k_mobile_navigation_setup() {
     $html .= '</div><!-- .j4k-theme-mobile-menu -->';
 
     echo apply_filters( 'j4k_mobile_navigation', $html );
-}
-
-/**
- * j4k_secondary_navigation_setup function.
- *
- * if our secondary menu is set, this shows it
- *
- * @access public
- * @return void
- */
-function j4k_secondary_navigation_setup() {
-    $html = null;
-
-    if ( ! has_nav_menu( 'secondary' ) ) {
-        return false;
-    }
-
-    $html .= '<div class="collapse navbar-collapse secondary-menu">';
-        $html .= wp_nav_menu(
-            array(
-                'theme_location' => 'secondary',
-                'container' => false,
-                'menu_class' => 'nav navbar-nav pull-right secondary',
-                'echo' => false,
-                'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
-                'walker' => new wp_bootstrap_navwalker(),
-            )
-        );
-    $html .= '</div> <!-- .secondary-menu -->';
-
-    echo apply_filters( 'j4k_secondary_navigation', $html );
 }
 
 /**
@@ -515,17 +429,6 @@ function j4k_array_recursive_diff( $aArray1, $aArray2 ) {
     return $aReturn;
 }
 
-/**
- * j4k_home_image function.
- *
- * @access public
- * @return void
- */
-function j4k_home_image() {
-    global $post;
-
-    $thumb_url = get_the_post_thumbnail_url( $post->ID, 'j4k-home-image' );
-
-    echo '<div style="background-image: url(' . $thumb_url . ')"></div>';
+function j4k_header_logo() {
+    echo '<img src="'.get_stylesheet_directory_uri().'/inc/images/just4kids-logo.png" alt="j4k-logo" />';
 }
-
